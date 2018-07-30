@@ -1,6 +1,6 @@
 # openapi JAVA SDK
 ## 环境依赖
-SDK 支持 JDK  1.8 及以上版本。
+SDK 支持 JDK  1.8 及以上版本。maven构建项目。
 
 ## 安装 SDK
 安装 SDK 的方式有两种：maven 安装和源码安装。
