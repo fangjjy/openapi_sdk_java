@@ -29,7 +29,7 @@ SDK 支持 JDK  1.8 及以上版本。
 ## 快速接入
 sdk中接口的封装在com.fang.openapi.service下
 
-#### 调用示例
+### 调用示例
 
 ```java
 CompanyKeyUnit keyUnit = new CompanyKeyUnit();
