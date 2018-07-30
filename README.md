@@ -12,12 +12,14 @@ SDK 支持 JDK  1.8 及以上版本。
 
 请将代码打包并上传到自己公司的Maven私服。应用在实际使用时只需要按照如下方式引入即可。
 
-```
+```xml
+
  <dependency>
             <groupId>com.fang</groupId>
             <artifactId>openapi</artifactId>
             <version>1.0.0</version>
 </dependency>
+
 ```
 
 - 源码安装
@@ -31,18 +33,24 @@ sdk中接口的封装在com.fang.openapi.service下
 
 ### 调用示例
 
-```java
-CompanyKeyUnit keyUnit = new CompanyKeyUnit();
-keyUnit.setKeyId(1023678L);
-keyUnit.setSecret("grthjf1bdc6668a2grtj6678yjedgee");
-manager = new HouseManager(new DefaultHttp(), this.keyUnit);
+以房源导入为例
 
-Auth agent = new Auth(new DefaultHttp(), keyUnit, "http://openapi.agents2.test.fang.com");
+```java
+
+CompanyKeyUnit keyUnit = new CompanyKeyUnit();
+keyUnit.setKeyId(1623678L);
+keyUnit.setSecret("grthjf1bdc6668a2grtj6678yjedgee");
+
+Auth agent = new Auth(keyUnit, "http://openapi.agentn.fang.com");
+//authDTO需要缓存，以供下次调接口直接使用，具体要求参加接口文档
 ReturnGenericDTO <AuthDTO> authDTO = agent.applyToken("用户名", "密码");
-ReturnGenericDTO <HouseReturnDTO> save = manager.save(authDTO.getData(), dto, 2);
+
+manager = new HouseManager(keyUnit);
+ReturnGenericDTO <HouseReturnDTO> save = manager.save(authDTO.getData(), dto, PType.SFB);
 
 ```
 
+*注:sdk中所用HttpClientManager实现可以替换成自己公司的方法。*
 
 ## SDK文档
 点击查看[SDK文档]()
