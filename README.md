@@ -23,7 +23,7 @@ SDK 支持 JDK  1.8 及以上版本。maven构建项目。
 ```
 
 - 源码安装
-从 [Java SDK](https://github.com/fangjjy/openapi_sdk_java) 下载源码，通过 maven 导入。比如 eclipse，依次选择 File->Import->maven->Existing Maven Projects。
+从 [Java SDK](https://github.com/fangjjy/openapi_sdk_java/releases) 下载源码，通过 maven 导入。比如 eclipse，依次选择 File->Import->maven->Existing Maven Projects。
 
 ## 卸载 SDK
 卸载 SDK 的方式即删除 pom 依赖或源码。
