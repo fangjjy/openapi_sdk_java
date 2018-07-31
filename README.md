@@ -52,6 +52,13 @@ ReturnGenericDTO <HouseReturnDTO> save = manager.save(authDTO.getData(), dto, PT
 
 *注:sdk中所用HttpClientManager实现可以替换成自己公司的方法。*
 
+
+### 日志与查错
+
+SDK日志组件采用Slf4j，用户可以自己选择日志组件的具体实现。
+建议调用阶段的日志级别使用Info、上线后改用Error，与房天下调试或者报错时，可以提供日志内容。
+
+
 ## SDK文档
 点击查看[SDK文档](http://help.agent.fang.com/openapi/sdk/java/)
 
