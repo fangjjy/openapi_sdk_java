@@ -53,7 +53,7 @@ ReturnGenericDTO <HouseReturnDTO> save = manager.save(authDTO.getData(), dto, PT
 *注:sdk中所用HttpClientManager实现可以替换成自己公司的方法。*
 
 ## SDK文档
-点击查看[SDK文档]()
+点击查看[SDK文档](http://help.agent.fang.com/openapi/sdk/java/)
 
 ## 接口文档
 点击查看[接口文档](https://github.com/fangjjy/openapi_document/wiki)
