@@ -56,7 +56,7 @@ ReturnGenericDTO <HouseReturnDTO> save = manager.save(authDTO.getData(), dto, PT
 ### 日志与查错
 
 SDK日志组件采用Slf4j，用户可以自己选择日志组件的具体实现。
-建议调用阶段的日志级别使用Info、上线后改用Error，与房天下调试或者报错时，可以提供日志内容。
+建议调试阶段的日志级别使用Info、正式上线后改用Error，与房天下调试或者报错时，提供日志内容。
 
 
 ## SDK文档
