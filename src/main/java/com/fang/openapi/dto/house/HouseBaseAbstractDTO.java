@@ -53,7 +53,7 @@ public abstract class HouseBaseAbstractDTO {
     /**
      * 标 题 图
      */
-    private String PhotoUrl;
+    private String photoUrl;
     /**
      * 房源信息编码
      */
@@ -81,7 +81,7 @@ public abstract class HouseBaseAbstractDTO {
      */
     private String subwayInfo;
     /**
-     * 视频的地址
+     * 视频的地址，如果值是字符串null,表示删除视频，如果不传或是空代表视频不做修改
      */
     private String videoUrl;
     /**
@@ -163,11 +163,11 @@ public abstract class HouseBaseAbstractDTO {
     }
 
     public String getPhotoUrl() {
-        return PhotoUrl;
+        return photoUrl;
     }
 
     public void setPhotoUrl(String photoUrl) {
-        PhotoUrl = photoUrl;
+        this.photoUrl = photoUrl;
     }
 
     public String getInfoCode() {

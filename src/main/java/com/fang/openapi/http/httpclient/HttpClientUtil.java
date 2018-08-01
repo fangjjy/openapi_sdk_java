@@ -111,7 +111,7 @@ public class HttpClientUtil {
      * @return 返回处理结果
      * @throws HttpProcessException
      */
-    public static String post(HttpClient client, String url, Header[] headers, Map<String, Object> parasMap, HttpContext context, String encoding)
+    public static String post(HttpClient client, String url, Header[] headers, Map <String, Object> parasMap, HttpContext context, String encoding)
             throws HttpProcessException, JsonProcessingException {
         return post(HttpConfig.custom().client(client).url(url).headers(headers).map(parasMap).context(context).encoding(encoding));
     }
@@ -139,7 +139,7 @@ public class HttpClientUtil {
      * @return 返回处理结果
      * @throws HttpProcessException
      */
-    public static String put(HttpClient client, String url, Map<String, Object> parasMap, Header[] headers, HttpContext context, String encoding)
+    public static String put(HttpClient client, String url, Map <String, Object> parasMap, Header[] headers, HttpContext context, String encoding)
             throws HttpProcessException, JsonProcessingException {
         return put(HttpConfig.custom().client(client).url(url).headers(headers).map(parasMap).context(context).encoding(encoding));
     }
@@ -194,7 +194,7 @@ public class HttpClientUtil {
      * @return 返回处理结果
      * @throws HttpProcessException
      */
-    public static String patch(HttpClient client, String url, Map<String, Object> parasMap, Header[] headers, HttpContext context, String encoding)
+    public static String patch(HttpClient client, String url, Map <String, Object> parasMap, Header[] headers, HttpContext context, String encoding)
             throws HttpProcessException, JsonProcessingException {
         return patch(HttpConfig.custom().client(client).url(url).headers(headers).map(parasMap).context(context).encoding(encoding));
     }
@@ -388,6 +388,7 @@ public class HttpClientUtil {
             throws HttpProcessException, JsonProcessingException {
         create(config);//获取链接
         HttpResponse resp = null;
+        String paramsStr = "";
         try {
             //创建请求对象
             HttpRequestBase request = getRequest(config.url(), config.method());
@@ -395,29 +396,31 @@ public class HttpClientUtil {
             request.setHeaders(config.headers());
             //判断是否支持设置entity(仅HttpPost、HttpPut、HttpPatch支持)
             if (HttpEntityEnclosingRequestBase.class.isAssignableFrom(request.getClass())) {
-                List<NameValuePair> nvps = new ArrayList<NameValuePair>();
+                List <NameValuePair> nvps = new ArrayList <NameValuePair>();
                 //检测url中是否存在参数
                 config.url(HttpUtils.checkHasParas(config.url(), nvps, config.inenc()));
                 //装填参数
                 HttpEntity entity = HttpUtils.map2HttpEntity(nvps, config.map(), config.inenc());
                 //设置参数到请求对象中
                 ((HttpEntityEnclosingRequestBase) request).setEntity(entity);
-                HttpUtils.info(new LogInfo(config.url(), JsonHelper.encode(config.headers())
-                        , JsonHelper.encode(config.map())
-                        , "请求参数信息", ""));
-//                HttpUtils.info("请求地址：" + config.url());
-//                if (nvps.size() > 0) {
-//                    HttpUtils.info("请求参数：" + nvps.toString());
-//                }
+                String body = "";
+                try {
+                    if (entity != null) {
+                        paramsStr = EntityUtils.toString(entity);
+                    }
+                } catch (Exception ex) {
+                    paramsStr = "";
+                }
+
             } else {
                 // 创建参数队列
-                Map<String, Object> paramsM = config.map();
-                String paramsStr = "";
-                Iterator<Map.Entry<String, Object>> it = paramsM.entrySet().iterator();
+                Map <String, Object> paramsM = config.map();
+
                 if (paramsM != null && paramsM.size() > 0) {
-                    List<NameValuePair> params = new ArrayList<NameValuePair>();
+                    Iterator <Map.Entry <String, Object>> it = paramsM.entrySet().iterator();
+                    List <NameValuePair> params = new ArrayList <NameValuePair>();
                     while (it.hasNext()) {
-                        Map.Entry<String, Object> entry = it.next();
+                        Map.Entry <String, Object> entry = it.next();
                         params.add(new BasicNameValuePair(entry.getKey(), String.valueOf(entry.getValue())));
                     }
                     paramsStr = EntityUtils.toString(new UrlEncodedFormEntity(params, config.inenc()));
@@ -428,14 +431,16 @@ public class HttpClientUtil {
                 }
                 request.setURI(URI.create(config.url()));
                 int idx = config.url().indexOf("?");
-                HttpUtils.info(new LogInfo(config.url(), JsonHelper.encode(config.headers())
-                        , JsonHelper.encode(config.map())
-                        , "请求参数信息", ""));
-//                HttpUtils.info("请求地址：" + config.url().substring(0, (idx > 0 ? idx : config.url().length())));
-//                if (idx > 0) {
-//                    HttpUtils.info("请求参数：" + config.url().substring(idx + 1));
-//                }
+
             }
+            Header[] allHeaders = request.getAllHeaders();
+            StringBuilder strHeader = new StringBuilder();
+            if (allHeaders != null && allHeaders.length > 0) {
+                for (Header header : allHeaders) {
+                    strHeader.append(header.getName()).append(":").append(header.getValue()).append("\r\n");
+                }
+            }
+            HttpUtils.info(request.toString() + "\r\nHeader:\r\n" + strHeader.toString() + "Body:\r\n" + paramsStr);
             //执行请求操作，并拿到结果（同步阻塞）
             resp = (config.context() == null) ? config.client().execute(request) : config.client()
                     .execute(request, config.context());
@@ -445,13 +450,17 @@ public class HttpClientUtil {
             }
             //获取结果实体
             return resp;
-        } catch (IOException e) {
+        } catch (
+                IOException e)
+
+        {
             HttpUtils.error(new LogInfo(config.url(),
                     JsonHelper.encode(config.headers()),
                     JsonHelper.encode(config.map()), "创建请求异常",
                     JsonHelper.encode(e)));
             throw new HttpProcessException(e);
         }
+
     }
 
     //-----------华----丽----分----割----线--------------

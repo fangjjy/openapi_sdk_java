@@ -8,6 +8,7 @@ import com.fang.openapi.dto.auth.CompanyKeyUnit;
 import com.fang.openapi.dto.photo.*;
 import com.fang.openapi.http.exception.HttpProcessException;
 import com.fang.openapi.util.JsonHelper;
+import com.fang.openapi.util.PropertiesUtil;
 import com.fang.openapi.util.StringHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -156,4 +157,10 @@ public class HousePhotoManagerTest {
         System.out.println("测试toString" + bb);
     }
 
+
+    @Test
+    public void GetVersionTest() {
+        String version = PropertiesUtil.getPropery("project.version");
+        System.out.println("获取版本" + version);
+    }
 }

@@ -20,23 +20,23 @@ public class ShopLeaseDTO extends LeaseHouseAbstractDTO {
     }
 
     /***
-     * 类别
+     * 类别:住宅底商 商业街商铺 临街门面 写字楼配套底商 购物中心/百货 其他
      */
     private String subType;
     /**
-     * 商铺状态
+     * 商铺状态: 营业中  闲置中 新铺
      */
     private String shopStatus;
     /**
      * 是否含物业费/管理费(0为不含；1为含)
      */
-    private Integer isIncludeFee;
+    private Integer isIncludFee;
     /**
      * 物业费
      */
     private Double propFee;
     /**
-     * 是否转让
+     * 是否转让:1/0
      */
     private Short isTransfer;
     /**
@@ -50,7 +50,7 @@ public class ShopLeaseDTO extends LeaseHouseAbstractDTO {
     /**
      * 是否可分割
      */
-    private Integer isDivisibility;
+    private Integer isDivisi;
     /**
      * 装修程度
      */
@@ -67,10 +67,7 @@ public class ShopLeaseDTO extends LeaseHouseAbstractDTO {
      * 房源标签
      */
     private String feature;
-    /**
-     * 房源标题
-     */
-    private String boardTitle;
+
     /**
      * 转让费（商铺）
      */
@@ -100,12 +97,12 @@ public class ShopLeaseDTO extends LeaseHouseAbstractDTO {
         this.shopStatus = shopStatus;
     }
 
-    public Integer getIsIncludeFee() {
-        return isIncludeFee;
+    public Integer getIsIncludFee() {
+        return isIncludFee;
     }
 
-    public void setIsIncludeFee(Integer isIncludeFee) {
-        this.isIncludeFee = isIncludeFee;
+    public void setIsIncludFee(Integer isIncludFee) {
+        this.isIncludFee = isIncludFee;
     }
 
     public Double getPropFee() {
@@ -140,12 +137,12 @@ public class ShopLeaseDTO extends LeaseHouseAbstractDTO {
         this.floor = floor;
     }
 
-    public Integer getIsDivisibility() {
-        return isDivisibility;
+    public Integer getIsDivisi() {
+        return isDivisi;
     }
 
-    public void setIsDivisibility(Integer isDivisibility) {
-        this.isDivisibility = isDivisibility;
+    public void setIsDivisi(Integer isDivisi) {
+        this.isDivisi = isDivisi;
     }
 
     public String getFitment() {
@@ -178,14 +175,6 @@ public class ShopLeaseDTO extends LeaseHouseAbstractDTO {
 
     public void setFeature(String feature) {
         this.feature = feature;
-    }
-
-    public String getBoardTitle() {
-        return boardTitle;
-    }
-
-    public void setBoardTitle(String boardTitle) {
-        this.boardTitle = boardTitle;
     }
 
     public Double getTransferFee() {

@@ -21,11 +21,15 @@ public class VillaLeaseDTO extends LeaseHouseAbstractDTO {
     }
 
     /**
-     * 建筑形式
+     * 建筑形式:
+     * 独栋
+     * 双拼
+     * 联排
+     * 叠加
      */
     private String buildingType;
     /**
-     * 厅 结 构
+     * 厅结构 平层\挑高
      */
     private String houseStructure;
     /**
@@ -71,7 +75,7 @@ public class VillaLeaseDTO extends LeaseHouseAbstractDTO {
      */
     private String forward;
     /**
-     * 地下室类型
+     * 地下室类型:     全明     半明     暗
      */
     private String shopType;
     /**
@@ -106,10 +110,7 @@ public class VillaLeaseDTO extends LeaseHouseAbstractDTO {
      * 入住时间
      */
     private String liveTime;
-    /**
-     * 房源标题
-     */
-    private String boardTitle;
+
     /**
      * 社（小）区配套（只有住宅别墅有，其他物业类型留备）
      */
@@ -312,13 +313,6 @@ public class VillaLeaseDTO extends LeaseHouseAbstractDTO {
         this.liveTime = liveTime;
     }
 
-    public String getBoardTitle() {
-        return boardTitle;
-    }
-
-    public void setBoardTitle(String boardTitle) {
-        this.boardTitle = boardTitle;
-    }
 
     public List <HousePhotoDTO> getImage1() {
         return image1;

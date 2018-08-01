@@ -119,7 +119,7 @@ public class HouseQueryDTO {
                 ", projName='" + projName + '\'' +
                 ", curPage=" + curPage +
                 ", pageSize=" + pageSize +
-                ", queryPType=" + queryPType +
+                ", ptype=" + queryPType +
                 '}';
     }
 
@@ -134,9 +134,9 @@ public class HouseQueryDTO {
                         "&houseid=" + validObj(houseId) +
                         "&innerid=" + validObj(innerId) +
                         "&projname=" + validObj(projName) +
-                        "&curPage=" + curPage +
-                        "&pageSize=" + pageSize +
-                        "&queryPType=" + validObj(queryPType);
+                        "&curpage=" + curPage +
+                        "&pagesize=" + pageSize +
+                        "&ptype=" + validObj(queryPType);
     }
 
     private String validObj(Object obj) {

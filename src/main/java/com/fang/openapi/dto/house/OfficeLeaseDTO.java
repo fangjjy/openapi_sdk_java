@@ -23,17 +23,17 @@ public class OfficeLeaseDTO extends HouseBaseAbstractDTO {
     }
 
     /***
-     * 类别，来自与客服后台的录入
+     * 类别，纯写字楼 商住楼 商业综合体楼 酒店写字楼
      */
     private String subType;
     /**
      * 物业费
      */
-    private Double propertyFee;
+    private Double propFee;
     /**
      * 是否含物业费/管理费(0为不含；1为含)
      */
-    private Integer isIncludeFee;
+    private Integer isIncludFee;
     /**
      * 支付方式(押一付三。年付等)
      */
@@ -46,7 +46,7 @@ public class OfficeLeaseDTO extends HouseBaseAbstractDTO {
     /**
      * 是否可分割
      */
-    private Integer isDivisibility;
+    private Integer isDivisi;
     /**
      * 装修程度
      */
@@ -85,20 +85,20 @@ public class OfficeLeaseDTO extends HouseBaseAbstractDTO {
         this.subType = subType;
     }
 
-    public Double getPropertyFee() {
-        return propertyFee;
+    public Double getPropFee() {
+        return propFee;
     }
 
-    public void setPropertyFee(Double propertyFee) {
-        this.propertyFee = propertyFee;
+    public void setPropFee(Double propFee) {
+        this.propFee = propFee;
     }
 
-    public Integer getIsIncludeFee() {
-        return isIncludeFee;
+    public Integer getIsIncludFee() {
+        return isIncludFee;
     }
 
-    public void setIsIncludeFee(Integer isIncludeFee) {
-        this.isIncludeFee = isIncludeFee;
+    public void setIsIncludFee(Integer isIncludFee) {
+        this.isIncludFee = isIncludFee;
     }
 
     public String getPayDetail() {
@@ -117,12 +117,12 @@ public class OfficeLeaseDTO extends HouseBaseAbstractDTO {
         this.floor = floor;
     }
 
-    public Integer getIsDivisibility() {
-        return isDivisibility;
+    public Integer getIsDivisi() {
+        return isDivisi;
     }
 
-    public void setIsDivisibility(Integer isDivisibility) {
-        this.isDivisibility = isDivisibility;
+    public void setIsDivisi(Integer isDivisi) {
+        this.isDivisi = isDivisi;
     }
 
     public String getFitment() {

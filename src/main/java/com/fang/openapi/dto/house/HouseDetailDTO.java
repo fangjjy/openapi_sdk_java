@@ -1,6 +1,5 @@
 package com.fang.openapi.dto.house;
 
-import com.fang.openapi.dto.ReturnGenericDTO;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -9,36 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author songle
  * @version 1.0.0
  * @create: 2018-07-26 10:57
- * @see <a
- * href="https://github.com/fangjjy/openapi_document/wiki" target="_blank">参考文档</a>
- * @see HouseLeaseDTO
  */
 public class HouseDetailDTO {
-
-    /**
-     * 获取房源对象实体
-     *
-     * @param houseID 房源ID
-     * @param s       字符串
-     * @return 返回对象{@link ReturnGenericDTO}
-     * @throws Exception xx异常
-     *                   TODO: 删除示例代码
-     */
-    public ReturnGenericDTO get(int houseID, String s) throws Exception {
-        return new ReturnGenericDTO();
-    }
-
-    /**
-     * 修改房源xx属性
-     *
-     * @param houseID 房源ID
-     * @param s       字符串
-     * @return {@link ReturnGenericDTO}
-     */
-    public int set(int houseID, String s) {
-        return 1;
-    }
-
     /**
      * 房源id
      */

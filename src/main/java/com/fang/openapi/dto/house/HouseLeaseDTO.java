@@ -101,7 +101,7 @@ public class HouseLeaseDTO extends LeaseHouseAbstractDTO {
      */
     private String housetypeintroduction;
     /**
-     * 周边配套（只有住宅别墅有，其他物业类型留备）
+     * 周边配套
      */
     private String subwayinfo;
     /**

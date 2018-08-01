@@ -62,7 +62,7 @@ public class HousePageDTO {
         this.list = list;
     }
 
-    public class HousePageDetailDTO {
+    public static class HousePageDetailDTO {
         @JsonProperty("houseid")
         private Integer houseId;
         @JsonProperty("agentid")

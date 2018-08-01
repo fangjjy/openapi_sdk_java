@@ -4,14 +4,14 @@ import java.io.*;
 import java.util.Properties;
 
 /**
- * Description: ${todo}(用一句话描述该文件做什么)
- * author: wjs(www.itdancer.cn)
+ * Description: 加載properties文件
+ * author: wjs
  * date: 2018/7/25
  * version: V1.0
  */
 public class PropertiesUtil {
 
-    private static final String properiesName = "application.properties";
+    private static final String properiesName = "pom.properties";
     private static Properties prop = new Properties();
 
     static {
