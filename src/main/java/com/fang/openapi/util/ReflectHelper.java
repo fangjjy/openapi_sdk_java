@@ -51,9 +51,8 @@ public class ReflectHelper {
                 || clazzName.equals(Short.class.getName())
                 || clazzName.equals(BigInteger.class.getName())
                 || clazzName.equals(Double.class.getName())
-                || clazzName.equals(Float.class.getName()
-        )
-
+                || clazzName.equals(Float.class.getName())
+                || clazzName.equals(Long.class.getName())
                 ) {
             return true;
         } else return false;

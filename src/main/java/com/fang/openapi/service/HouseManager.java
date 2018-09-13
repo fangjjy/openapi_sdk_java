@@ -13,6 +13,7 @@ import com.fang.openapi.http.exception.HttpProcessException;
 import com.fang.openapi.util.JsonHelper;
 import com.fang.openapi.util.ReflectHelper;
 import com.fang.openapi.util.StringHelper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -135,7 +136,7 @@ public class HouseManager extends BaseServiceAbtract {
      * @param obj
      * @return
      */
-    private Map <String, String> transferDTOToForm(HouseBaseAbstractDTO obj) {
+    private Map <String, String> transferDTOToForm(HouseBaseAbstractDTO obj) throws JsonProcessingException {
         if (obj == null) return null;
         Map <String, String> form = new HashMap <>();
         //获取主要字段
@@ -156,22 +157,14 @@ public class HouseManager extends BaseServiceAbtract {
      * @param obj
      * @return
      */
-    public Map <String, String> getHouseImages(HouseBaseAbstractDTO obj) {
+    public Map <String, String> getHouseImages(HouseBaseAbstractDTO obj) throws JsonProcessingException {
         String[] imageFieldNames = new String[]{"image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8"};
         Map <String, String> map = new HashMap <>();
         for (String fieldname : imageFieldNames) {
             Object val = ReflectHelper.getBeanFieldValue(obj, fieldname);
-            StringBuilder sb = new StringBuilder();
             if (val != null && val instanceof List) {
-                List list = (List) val;
-                for (Object item : list) {
-                    if (item != null && item instanceof HousePhotoDTO) {
-                        sb.append(((HousePhotoDTO) item).formatString()).append(",");
-                    }
-                }
-            }
-            if (sb.length() > 0) {
-                map.put(fieldname, sb.substring(0, sb.length() - 1));
+
+                map.put(fieldname, JsonHelper.encode(val));
             }
         }
         return map;

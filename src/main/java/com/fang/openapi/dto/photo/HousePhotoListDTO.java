@@ -16,12 +16,12 @@ public class HousePhotoListDTO {
      * 房源 ID
      */
     @JsonProperty("HouseID")
-    private Long houseid;
+    private Integer houseid;
     /**
      * 图片 ID
      */
     @JsonProperty("PhotoID")
-    private Long photoid;
+    private Integer photoid;
     /**
      * 图片地址
      */
@@ -36,14 +36,14 @@ public class HousePhotoListDTO {
      * 图片类型id
      */
     @JsonProperty("ALBUMID")
-    private String albumid;
+    private Integer albumid;
     /**
      * 图片类型
      */
     @JsonProperty("ALBUMNAME")
     private String albumname;
 
-    public Long getHouseid() {
+    public Integer getHouseid() {
         return houseid;
     }
 
@@ -51,11 +51,11 @@ public class HousePhotoListDTO {
      *
      * @param houseid 房源 ID
      */
-    public void setHouseid(Long houseid) {
+    public void setHouseid(Integer houseid) {
         this.houseid = houseid;
     }
 
-    public Long getPhotoid() {
+    public Integer getPhotoid() {
         return photoid;
     }
 
@@ -63,7 +63,7 @@ public class HousePhotoListDTO {
      *
      * @param photoid 图片 ID
      */
-    public void setPhotoid(Long photoid) {
+    public void setPhotoid(Integer photoid) {
         this.photoid = photoid;
     }
 
@@ -91,7 +91,7 @@ public class HousePhotoListDTO {
         this.photoname = photoname;
     }
 
-    public String getAlbumid() {
+    public Integer getAlbumid() {
         return albumid;
     }
 
@@ -99,7 +99,7 @@ public class HousePhotoListDTO {
      *
      * @param albumid 图片类型id
      */
-    public void setAlbumid(String albumid) {
+    public void setAlbumid(Integer albumid) {
         this.albumid = albumid;
     }
 
