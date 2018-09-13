@@ -389,5 +389,44 @@ public class HousePageDTO {
         public void setDeposit(Short deposit) {
             this.deposit = deposit;
         }
+
+        @Override
+        public String toString() {
+            return "HousePageDetailDTO{" +
+                    "houseId=" + houseId +
+                    ", agentId=" + agentId +
+                    ", agentName='" + agentName + '\'' +
+                    ", registDate=" + registDate +
+                    ", imageCount=" + imageCount +
+                    ", isVideo=" + isVideo +
+                    ", address='" + address + '\'' +
+                    ", room=" + room +
+                    ", hall=" + hall +
+                    ", toilet=" + toilet +
+                    ", buildingArea=" + buildingArea +
+                    ", price=" + price +
+                    ", priceType='" + priceType + '\'' +
+                    ", isbBest=" + isbBest +
+                    ", status=" + status +
+                    ", source='" + source + '\'' +
+                    ", projName='" + projName + '\'' +
+                    ", projCode=" + projCode +
+                    ", limitDate=" + limitDate +
+                    ", tag=" + tag +
+                    ", insertTime=" + insertTime +
+                    ", isValid=" + isValid +
+                    ", abnormal=" + abnormal +
+                    ", purpose='" + purpose + '\'' +
+                    ", title='" + title + '\'' +
+                    ", photoURL='" + photoURL + '\'' +
+                    ", promoteProductType=" + promoteProductType +
+                    ", promotedTo=" + promotedTo +
+                    ", showlevel=" + showlevel +
+                    ", tagaddtime=" + tagaddtime +
+                    ", isRealHouse=" + isRealHouse +
+                    ", isNewHouse=" + isNewHouse +
+                    ", deposit=" + deposit +
+                    '}';
+        }
     }
 }

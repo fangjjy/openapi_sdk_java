@@ -25,7 +25,7 @@ public class HouseQueryDTO {
     private String purposeType;
     private Integer houseStatus;
     private Integer houseId;
-    private Integer innerId;
+    private String innerId;
     private String projName;
     private Integer curPage;
     private Integer pageSize;
@@ -63,11 +63,11 @@ public class HouseQueryDTO {
         this.houseId = houseId;
     }
 
-    public Integer getInnerId() {
+    public String getInnerId() {
         return innerId;
     }
 
-    public void setInnerId(Integer innerId) {
+    public void setInnerId(String innerId) {
         this.innerId = innerId;
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
  * @author: Songle
  * @create: 2018-06-11 09:57
  **/
-public class OfficeSaleDTO extends HouseBaseAbstractDTO {
+public class OfficeSaleDTO extends SaleHouseAbstractDTO {
     public OfficeSaleDTO() {
         this.setPurposeType("Office");
         this.image4 = new LinkedList <>();

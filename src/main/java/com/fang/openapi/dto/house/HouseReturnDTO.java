@@ -17,7 +17,7 @@ public class HouseReturnDTO {
     /**
      * 房源的内部编号
      */
-    private Integer innerid;
+    private String innerid;
     /**
      * 房源
      */
@@ -25,7 +25,7 @@ public class HouseReturnDTO {
     /**
      * 房源推广成功是1，否则是2
      */
-    private Integer falg;
+    private Integer flag;
     /**
      * 推广的端，表示房源推广到了那些端
      */
@@ -39,11 +39,11 @@ public class HouseReturnDTO {
         this.houseid = houseid;
     }
 
-    public Integer getInnerid() {
+    public String getInnerid() {
         return innerid;
     }
 
-    public void setInnerid(Integer innerid) {
+    public void setInnerid(String innerid) {
         this.innerid = innerid;
     }
 
@@ -56,11 +56,11 @@ public class HouseReturnDTO {
     }
 
     public Integer getFalg() {
-        return falg;
+        return flag;
     }
 
     public void setFalg(Integer falg) {
-        this.falg = falg;
+        this.flag = falg;
     }
 
     public List <Integer> getPromotedto() {
@@ -77,7 +77,7 @@ public class HouseReturnDTO {
                 "houseid=" + houseid +
                 ", innerid=" + innerid +
                 ", houseurl='" + houseurl + '\'' +
-                ", falg=" + falg +
+                ", falg=" + flag +
                 ", promotedto=" + promotedto +
                 '}';
     }
