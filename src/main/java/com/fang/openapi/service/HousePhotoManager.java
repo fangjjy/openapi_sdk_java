@@ -1,5 +1,6 @@
 package com.fang.openapi.service;
 
+import com.fang.openapi.consts.HouseType;
 import com.fang.openapi.dto.ReturnDTO;
 import com.fang.openapi.dto.ReturnGenericDTO;
 import com.fang.openapi.dto.auth.AuthDTO;
@@ -8,9 +9,7 @@ import com.fang.openapi.dto.photo.*;
 import com.fang.openapi.http.common.HttpUtils;
 import com.fang.openapi.http.exception.HttpProcessException;
 import com.fang.openapi.util.JsonHelper;
-import com.fang.openapi.util.StringHelper;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fang.openapi.consts.HouseType;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -145,25 +144,25 @@ public class HousePhotoManager extends BaseServiceAbtract {
         params.put("houseType", input.getHouseType());
         params.put("houseid", input.getHouseid());
         if (input.getImage1() != null && input.getImage1().size() > 0) {
-            params.put("image1", StringHelper.strip(input.getImage1().toString(), "[]"));
+            params.put("image1", JsonHelper.encode(input.getImage1()));
         }
         if (input.getImage2() != null && input.getImage2().size() > 0) {
-            params.put("image2", StringHelper.strip(input.getImage2().toString(), "[]"));
+            params.put("image2", JsonHelper.encode(input.getImage2()));
         }
         if (input.getImage3() != null && input.getImage3().size() > 0) {
-            params.put("image3", StringHelper.strip(input.getImage3().toString(), "[]"));
+            params.put("image3", JsonHelper.encode(input.getImage3()));
         }
         if (input.getImage4() != null && input.getImage4().size() > 0) {
-            params.put("image4", StringHelper.strip(input.getImage4().toString(), "[]"));
+            params.put("image4", JsonHelper.encode(input.getImage4()));
         }
         if (input.getImage5() != null && input.getImage5().size() > 0) {
-            params.put("image5", StringHelper.strip(input.getImage5().toString(), "[]"));
+            params.put("image5", JsonHelper.encode(input.getImage5()));
         }
         if (input.getImage6() != null && input.getImage6().size() > 0) {
-            params.put("image6", StringHelper.strip(input.getImage6().toString(), "[]"));
+            params.put("image6", JsonHelper.encode(input.getImage6()));
         }
         if (input.getImage7() != null && input.getImage7().size() > 0) {
-            params.put("image7", StringHelper.strip(input.getImage7().toString(), "[]"));
+            params.put("image7", JsonHelper.encode(input.getImage7()));
         }
         String result = super.httpclient.doPost(authDTO.getUrl() + "/House/HousePhotoMultAdd", header, params);
         ReturnGenericDTO <String> obj = JsonHelper.decode(result,

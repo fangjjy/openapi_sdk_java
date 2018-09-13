@@ -1,5 +1,7 @@
 package com.fang.openapi.dto.photo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * 房源录入用到的图片DTO
  *
@@ -19,10 +21,12 @@ public class HousePhotoDTO {
     /**
      * 图片的地址
      */
+    @JsonProperty("url")
     private String url;
     /**
      * 图片名称
      */
+    @JsonProperty("name")
     private String name;
 
     public String getUrl() {
