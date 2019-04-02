@@ -60,7 +60,7 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>log4j.properties</include>
-                    <include>pom.properties</include>
+                    <include>application.properties</include>
                 </includes>
             </resource>
         </resources>
