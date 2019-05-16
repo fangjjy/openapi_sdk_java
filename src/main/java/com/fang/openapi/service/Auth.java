@@ -7,6 +7,7 @@ import com.fang.openapi.http.HttpClientManager;
 import com.fang.openapi.http.HttpInterface;
 import com.fang.openapi.http.exception.HttpProcessException;
 import com.fang.openapi.util.JsonHelper;
+import com.fang.openapi.util.PropertiesUtil;
 import com.fang.openapi.util.SecretHelper;
 import com.fang.openapi.util.StringHelper;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,8 +15,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 用户授权服务
@@ -60,6 +64,9 @@ public class Auth {
         header.put("KeyId", keyUnit.getKeyId().toString());
         header.put("DataType", "json");
         header.put("Accept", "text/json");
+        String version = PropertiesUtil.getPropery("fang.openapi.version");
+        SimpleDateFormat format = new SimpleDateFormat("MMddHHmmssSSS");
+        header.put("FangRequestID", this.keyUnit.getKeyId()+"_"+version + "_" + format.format(new Date())+"_"+ UUID.randomUUID().toString().replaceAll("-",""));
 
         String result = null;
         try {

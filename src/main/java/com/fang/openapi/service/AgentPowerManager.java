@@ -4,7 +4,6 @@ import com.fang.openapi.dto.ReturnGenericDTO;
 import com.fang.openapi.dto.agentpower.AgentPowerInfo;
 import com.fang.openapi.dto.auth.AuthDTO;
 import com.fang.openapi.dto.auth.CompanyKeyUnit;
-import com.fang.openapi.dto.photo.HousePhotoListDTO;
 import com.fang.openapi.http.exception.HttpProcessException;
 import com.fang.openapi.util.JsonHelper;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -15,11 +14,13 @@ import java.util.Map;
 
 /**
  * 权限相关服务
- *
- * @version v1.0.0
- * @author: Songle
+ * @see <a
+ *      href="https://github.com/fangjjy/openapi_document/wiki" target="_blank">参考文档</a>
+ * @see AgentPowerManager
+ * @author zhangzhiwei
+ * @version v2.3.0
  * @create: 2018-08-13 17:47
- **/
+ */
 public class AgentPowerManager extends BaseServiceAbtract {
 
     public AgentPowerManager(CompanyKeyUnit keyUnit) {
@@ -28,8 +29,8 @@ public class AgentPowerManager extends BaseServiceAbtract {
 
     /**
      * 权限查询（获取经纪人当前所有权限信息）
-     * @param authDTO
-     * @return
+     * @param authDTO 授权接口返回数据
+     * @return 经纪人当前所有权限信息
      * @throws HttpProcessException
      * @throws IOException
      */

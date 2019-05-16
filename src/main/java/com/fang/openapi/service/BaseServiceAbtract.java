@@ -41,14 +41,14 @@ abstract class BaseServiceAbtract {
      * @return 请求header信息
      */
     protected Map <String, String> getHeader(AuthDTO authDTO) {
-        String version = PropertiesUtil.getPropery("project.version");
+        String version = PropertiesUtil.getPropery("fang.openapi.version");
         SimpleDateFormat format = new SimpleDateFormat("MMddHHmmssSSS");
         Map <String, String> header = new HashMap <>();
         header.put("Token", authDTO.getToken());
         header.put("KeyId", this.getKeyUnit().getKeyId().toString());
         header.put("DataType", "json");
         header.put("Accept", "text/json");
-        header.put("RequestID", this.keyUnit.getKeyId()+"_"+version + "_" + format.format(new Date())+"_"+UUID.randomUUID().toString().replaceAll("-",""));
+        header.put("FangRequestID", this.keyUnit.getKeyId()+"_"+version + "_" + format.format(new Date())+"_"+UUID.randomUUID().toString().replaceAll("-",""));
         return header;
     }
 }
